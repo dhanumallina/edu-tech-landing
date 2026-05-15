@@ -1,8 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import  CountUp  from 'react-countup'
 import { useInView } from 'react-intersection-observer'
+import dynamic from 'next/dynamic'
+
+const CountUp = dynamic(() => import('react-countup').then(mod => mod.CountUp), {
+  ssr: false,
+})
 
 export function Statistics() {
   const { ref, inView } = useInView({ triggerOnce: true })
