@@ -69,7 +69,7 @@ export function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-gray-300 mb-6 italic">"{testimonial.text}"</p>
+              <p className="text-gray-300 mb-6 italic">&quot;{testimonial.text}&quot;</p>
 
               {/* Author */}
               <div className="flex items-center gap-3">
@@ -78,6 +78,7 @@ export function Testimonials() {
                     src={testimonial.image}
                     alt={testimonial.name}
                     fill
+                    sizes="48px"
                     className="object-cover"
                   />
                 </div>
