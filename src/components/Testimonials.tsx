@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Star } from 'lucide-react'
 
 export function Testimonials() {
@@ -9,28 +10,28 @@ export function Testimonials() {
       name: 'Arjun Singh',
       role: 'Software Engineer at Google',
       text: 'CodeNext transformed my career. The mentorship and real-world projects were invaluable!',
-      avatar: '👨‍💼',
+      image: '/assets/student1.jpg',
       rating: 5,
     },
     {
       name: 'Priya Sharma',
       role: 'Full Stack Dev at Microsoft',
       text: 'Best investment I made in my tech journey. Highly recommended!',
-      avatar: '👩‍💻',
+      image: '/assets/student2.jpg',
       rating: 5,
     },
     {
       name: 'Rahul Patel',
       role: 'Data Scientist at Amazon',
       text: 'The AI/ML program was comprehensive and industry-relevant. Amazing support!',
-      avatar: '👨‍🔬',
+      image: '/assets/student3.jpg',
       rating: 5,
     },
     {
       name: 'Ananya Gupta',
       role: 'UI/UX Designer at Adobe',
       text: 'Learned so much about design systems and user experience. Highly valuable!',
-      avatar: '👩‍🎨',
+      image: '/assets/student4.jpg',
       rating: 5,
     },
   ]
@@ -72,7 +73,14 @@ export function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="text-3xl">{testimonial.avatar}</div>
+                <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div>
                   <p className="font-semibold">{testimonial.name}</p>
                   <p className="text-sm text-gray-500">{testimonial.role}</p>
