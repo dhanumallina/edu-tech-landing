@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle } from 'lucide-react'
+import Image from 'next/image'
 
 export function About() {
   const achievements = [
@@ -20,17 +20,22 @@ export function About() {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-12 items-center"
         >
-          {/* Left - Image Placeholder */}
-          <div className="relative h-96 rounded-2xl bg-gradient-to-br from-indigo/10 to-violet/10 border border-indigo/20 flex items-center justify-center overflow-hidden">
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="text-center"
-            >
-              <div className="text-6xl mb-4">📚</div>
-              <p className="text-gray-400">Your Image Here</p>
-            </motion.div>
-          </div>
+          {/* Left - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative h-96 rounded-2xl overflow-hidden border border-indigo/20"
+          >
+            <Image
+              src="/assets/about-image.jpg"
+              alt="About CodeNext"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
+          </motion.div>
 
           {/* Right - Content */}
           <motion.div
