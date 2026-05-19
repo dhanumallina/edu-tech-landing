@@ -4,7 +4,9 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import dynamic from 'next/dynamic'
 
-const CountUp = dynamic(() => import('react-countup').then(mod => mod.CountUp), {
+// Import the default export from react-countup. Previous code used mod.CountUp which is undefined
+// causing the lazy component to resolve to undefined and crash the app.
+const CountUp = dynamic(() => import('react-countup').then(mod => mod.default || mod), {
   ssr: false,
 })
 
